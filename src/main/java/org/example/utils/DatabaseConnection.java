@@ -3,15 +3,23 @@ package org.example.utils;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
-public class Database {
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
     MongoClient mongo;
 
-    public Database() {
+    public DatabaseConnection() {
         mongo = new MongoClient("localhost", 27017);
     }
 
     public MongoDatabase getDatabase() {
         return mongo.getDatabase("RefugioAnimales");
+    }
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
     }
 }
 
