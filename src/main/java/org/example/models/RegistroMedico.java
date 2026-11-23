@@ -3,33 +3,37 @@ package org.example.models;
 import java.time.LocalDate;
 
 public class RegistroMedico {
-    int id;
-    Animal animal;
+    String objectId;
+    int animalId;
     LocalDate fechaInicio;
     LocalDate fechaFin;
     String comentarios;
 
-    public RegistroMedico(Animal animal, LocalDate fechaInicio, LocalDate fechaFin, String comentarios) {
-        this.animal = animal;
+    public RegistroMedico(int animalId, LocalDate fechaInicio, LocalDate fechaFin, String comentarios) {
+        this.animalId = animalId;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.comentarios = comentarios;
     }
 
-    public int getId() {
-        return id;
+    public RegistroMedico(String objectId) {
+        this.objectId = objectId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getObjectId() {
+        return objectId;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    public int getAnimalId() {
+        return animalId;
+    }
+
+    public void setAnimalId(int animalId) {
+        this.animalId = animalId;
     }
 
     public LocalDate getFechaInicio() {
@@ -54,5 +58,16 @@ public class RegistroMedico {
 
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
+    }
+
+    @Override
+    public String toString() {
+        return "RegistroMedico{" +
+                "objectId=" + objectId +
+                ", animalId=" + animalId +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
+                ", comentarios='" + comentarios + '\'' +
+                '}';
     }
 }

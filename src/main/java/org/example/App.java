@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.dao.AdopcionDao;
-import org.example.dao.AdoptanteDao;
-import org.example.dao.AnimalDao;
-import org.example.dao.RefugioDao;
+import org.example.dao.*;
 import org.example.menus.*;
 
 import static org.example.utils.EntradaDatos.preguntar;
@@ -14,10 +11,11 @@ public class App {
     }
 
     private static void menuPrincipal() {
-        AdopcionDao adopcionDao = new AdopcionDao();
-        AdoptanteDao adoptanteDao = new AdoptanteDao();
-        AnimalDao animalDao = new AnimalDao();
         RefugioDao refugioDao = new RefugioDao();
+        AnimalDao animalDao = new AnimalDao();
+        RegistroMedicoDao registroMedicoDao = new RegistroMedicoDao();
+        AdoptanteDao adoptanteDao = new AdoptanteDao();
+        AdopcionDao adopcionDao = new AdopcionDao();
 
         final String MENU = "1) Información del Refugio\n" +
                 "2) Gestionar Animales\n" +
@@ -39,7 +37,7 @@ public class App {
                     new MenuRefugio(refugioDao);
                     break;
                 case 2:
-                    new MenuAnimales(animalDao);
+                    new MenuAnimales(animalDao, registroMedicoDao);
                     break;
                 case 3:
                     new MenuAdoptantes(adoptanteDao);
@@ -56,6 +54,8 @@ public class App {
                 default:
                     System.out.println("Acción no válida");
             }
+
+            System.out.println();
         }
     }
 }

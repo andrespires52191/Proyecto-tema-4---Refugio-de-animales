@@ -8,6 +8,8 @@ public class DatabaseConnection {
     MongoClient mongo;
 
     public DatabaseConnection() {
+        // https://mongodb.github.io/mongo-java-driver/3.12/driver/
+        // https://mongodb.github.io/mongo-java-driver/3.12/javadoc/
         mongo = new MongoClient("localhost", 27017);
     }
 

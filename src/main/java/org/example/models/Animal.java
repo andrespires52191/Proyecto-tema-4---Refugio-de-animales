@@ -1,7 +1,6 @@
 package org.example.models;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Animal {
     //Animales (número identificador del animal, nombre, especie, raza, edad, sexo,
@@ -12,6 +11,7 @@ public class Animal {
     //ingreso, estado (disponible, reservado, adoptado o en tratamiento) e historial médico.
     //Este último deberá permitir almacenar diferentes registros médicos de cada animal.
 
+    String objectId;
     int id;
     String nombre;
     String especie;
@@ -21,7 +21,6 @@ public class Animal {
     String descripcion;
     LocalDate fechaIngreso;
     AnimalEstado estado; // DISPONIBLE, RESERVADO, ADOPTADO, EN_TRATAMIENTO
-    List<RegistroMedico> historialMedico;
 
     public Animal(String nombre, String especie, String raza, int edad, String sexo, String descripcion, LocalDate fechaIngreso, AnimalEstado estado) {
         this.nombre = nombre;
@@ -32,6 +31,14 @@ public class Animal {
         this.descripcion = descripcion;
         this.fechaIngreso = fechaIngreso;
         this.estado = estado;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
     public int getId() {
@@ -106,11 +113,19 @@ public class Animal {
         this.estado = estado;
     }
 
-    public List<RegistroMedico> getHistorialMedico() {
-        return historialMedico;
-    }
-
-    public void setHistorialMedico(List<RegistroMedico> historialMedico) {
-        this.historialMedico = historialMedico;
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "objectId='" + objectId + '\'' +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", especie='" + especie + '\'' +
+                ", raza='" + raza + '\'' +
+                ", edad=" + edad +
+                ", sexo='" + sexo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaIngreso=" + fechaIngreso +
+                ", estado=" + estado +
+                '}';
     }
 }
